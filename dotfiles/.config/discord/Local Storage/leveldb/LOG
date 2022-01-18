@@ -1,0 +1,6 @@
+2022/01/11-14:30:38.015 20da Reusing MANIFEST /home/estrox1/.config/discord/Local Storage/leveldb/MANIFEST-000001
+2022/01/11-14:30:38.015 20da Recovering log #3
+2022/01/11-14:30:38.100 20da Reusing old log /home/estrox1/.config/discord/Local Storage/leveldb/000003.log 
+2022/01/11-14:33:05.315 20d9 Level-0 table #5: started
+2022/01/11-14:33:05.365 20d9 Level-0 table #5: 141360 bytes OK
+2022/01/11-14:33:05.399 20d9 Delete type=0 #3

@@ -1,4 +1,4 @@
-# Arch dotfiles backup
+# Introduction
 
 This is my repository for my dotfiles backup.
 For the moment, I am still developping my config files.

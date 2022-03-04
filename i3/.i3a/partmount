@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+#------------------------------------------------------------------------------
+# Project Name      - i3Config/source/.i3a/partmount
+# Started On        - Mon 15 Jan 20:17:34 GMT 2018
+# Last Change       - Fri 18 Feb 01:25:28 GMT 2022
+# Author E-Mail     - terminalforlife@yahoo.com
+# Author GitHub     - https://github.com/terminalforlife
+#------------------------------------------------------------------------------
+# This will not work on systems without open policies for udisksctl(1), such as
+# the default installation of Ubuntu 18.04. This can be solved by installing
+# the `policykit-desktop-privileges` package.
+#
+# SYNTAX:    partmount [OPTS]
+#
+# ARGS:      --uuid|-U UUID    - Where UUID is one of the filesystem to mount.
+#            --label|-L LABEL  - Where LABEL is one of the filesystem to mount.
+#            --name|-N NAME    - Where NAME is one of the filesystem to mount.
+#
+# NOTE:      NAME is the block device name. (`/dev/sda1` | `sda1`)
+#
+# Dependencies:
+#
+#   notify-send(1)
+#   udisksctl(1)
+#------------------------------------------------------------------------------
+
+Notify() {
+	notify-send --urgency=critical "$1"
+}
+
+Mounter() {
+	if [[ -e $1 ]]; then
+		udisksctl mount -b "$1" && exit 0
+		if ! udisksctl unmount -b "$1"; then
+			Notify 'Unable to unmount file system.'
+			exit 1
+		fi
+	else
+		Notify "Chosen '$2' invalid or unavailable."
+		exit 1
+	fi
+}
+
+while [[ -n $1 ]]; do
+	case $1 in
+		--uuid|-U)
+			shift; Mounter "/dev/disk/by-uuid/$1" 'UUID' ;;
+		--label|-L)
+			shift; Mounter "/dev/disk/by-label/${1// /\\x20}" 'label' ;;
+		--name|-N)
+			shift; Mounter "/dev/${1#/dev/}" 'name' ;;
+	esac
+	shift
+done

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=sh -c "rclone --vfs-cache-mode writes mount \\"one drive\\": ~/OneDrive"
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=OneDrive mount
+Name=OneDrive mount
+Comment[en_US]=Mounts OneDrive
+Comment=Mounts OneDrive

@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+#------------------------------------------------------------------------------
+# Project Name      - i3Config/source/.i3a/sink_switch
+# Started On        - Sun 24 Sep 00:30:17 BST 2017
+# Last Change       - Mon 17 Jan 19:31:10 GMT 2022
+# Author E-Mail     - terminalforlife@yahoo.com
+# Author GitHub     - https://github.com/terminalforlife
+#------------------------------------------------------------------------------
+# This script is more of a personal one than any of the others. I have two
+# devices I switch between the mixer and the monitor's speakers. Headphones on
+# the former.
+#------------------------------------------------------------------------------
+
+Dev_1='alsa_output.usb-Burr-Brown_from_TI_USB_Audio_CODEC-00.analog-stereo'
+Dev_2='alsa_card.pci-0000_01_00.1.hdmi-stereo-extra1'
+
+if type -P pacmd &> /dev/null; then
+	while IFS=':' read -a Line; do
+		[[ ${Line[0]} == 'Default sink name' ]] && Master=${Line[1]## }
+	done <<< "$(pacmd info)"
+
+	if type -P pactl &> /dev/null; then
+		pactl play-sample x11-volume-change & disown
+
+		if [[ $Master == $Dev_1 ]]; then
+			pactl set-card-profile "${Dev_2%.*}" output:hdmi-stereo-extra1
+		else
+			pactl set-card-profile "${Dev_2%.*}" off
+		fi
+	fi
+fi

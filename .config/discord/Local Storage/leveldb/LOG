@@ -1,0 +1,6 @@
+2022/03/02-08:07:44.047 814f Reusing MANIFEST /home/maximilien/.config/discord/Local Storage/leveldb/MANIFEST-000001
+2022/03/02-08:07:44.049 814f Recovering log #35
+2022/03/02-08:07:44.049 814f Reusing old log /home/maximilien/.config/discord/Local Storage/leveldb/000035.log 
+2022/03/02-08:08:50.812 814f Level-0 table #39: started
+2022/03/02-08:08:50.819 814f Level-0 table #39: 332731 bytes OK
+2022/03/02-08:08:50.822 814f Delete type=0 #35

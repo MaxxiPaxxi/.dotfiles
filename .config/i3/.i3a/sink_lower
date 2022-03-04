@@ -1,0 +1,11 @@
+#/bin/sh
+
+#------------------------------------------------------------------------------
+# Project Name      - i3Config/source/.i3a/sink_lower
+# Started On        - Sun 24 Sep 00:30:17 BST 2017
+# Last Change       - Mon 17 Jan 19:33:42 GMT 2022
+# Author E-Mail     - terminalforlife@yahoo.com
+# Author GitHub     - https://github.com/terminalforlife
+#------------------------------------------------------------------------------
+
+pactl set-sink-volume '@DEFAULT_SINK@' -500

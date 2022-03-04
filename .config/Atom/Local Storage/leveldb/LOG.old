@@ -1,0 +1,18 @@
+2022/02/28-14:03:49.510 4e05 Reusing MANIFEST /home/maximilien/.config/Atom/Local Storage/leveldb/MANIFEST-000001
+2022/02/28-14:03:49.510 4e05 Recovering log #187
+2022/02/28-14:03:49.511 4e05 Reusing old log /home/maximilien/.config/Atom/Local Storage/leveldb/000187.log 
+2022/02/28-14:11:12.729 53b0 Level-0 table #191: started
+2022/02/28-14:11:12.734 53b0 Level-0 table #191: 13779 bytes OK
+2022/02/28-14:11:12.737 53b0 Delete type=0 #187
+2022/02/28-14:16:05.119 53b0 Level-0 table #193: started
+2022/02/28-14:16:05.128 53b0 Level-0 table #193: 115826 bytes OK
+2022/02/28-14:16:05.131 53b0 Delete type=0 #190
+2022/02/28-14:16:05.132 53b0 Compacting 4@0 + 1@1 files
+2022/02/28-14:16:05.154 53b0 Generated table #194@0: 441 keys, 413097 bytes
+2022/02/28-14:16:05.154 53b0 Compacted 4@0 + 1@1 files => 413097 bytes
+2022/02/28-14:16:05.157 53b0 compacted to: files[ 0 1 1 0 0 0 0 ]
+2022/02/28-14:16:05.158 53b0 Delete type=2 #183
+2022/02/28-14:16:05.158 53b0 Delete type=2 #188
+2022/02/28-14:16:05.158 53b0 Delete type=2 #191
+2022/02/28-14:16:05.158 53b0 Delete type=2 #186
+2022/02/28-14:16:05.158 53b0 Delete type=2 #193

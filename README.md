@@ -1,7 +1,7 @@
 # Introduction
 
-This is my repository for my dotfiles backup.
-For the moment, I am still developping my config files.
+This is my repository for my dotfiles backup. I am currently still developping my configuration files.
+This branch in particular of `.dotfiles`  is for my Laptop configuration.
 
 
 # Future changes

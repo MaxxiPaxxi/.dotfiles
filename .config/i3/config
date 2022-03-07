@@ -38,7 +38,7 @@ bindsym $mod+Return exec $myTerm
 bindsym $mod+Shift+c kill
 
 # start program launcher
-bindsym $mod+Shift+Return exec --no-startup-id rofi -show run
+bindsym $mod+o exec --no-startup-id rofi -show run
 
 # launch categorized menu
 bindsym $mod+' exec --no-startup-id morc_menu
@@ -87,17 +87,26 @@ exec --no-startup-id volumeicon
 ################################################################################################
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "sh $HOME/.config/i3/brightness_up; notify-send 'Brightness up 10%'"
+bindsym XF86MonBrightnessDown exec "sh $HOME/.config/i3/brightness_down; notify-send 'Brightness down 10%'"
+# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
+# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+
+# Sound volume controls
+bindsym XF86AudioRaiseVolume exec "~/.config/polybar/scripts/pavolume.sh --up"
+bindsym XF86AudioLowerVolume exec "~/.config/polybar/scripts/pavolume.sh --down"
+
+# Media control
+bindsym XF86AudioPlay exec "playerctl play-pause"
 
 # Start Applications
 bindsym $mod+Ctrl+b exec $myTerm -e 'bmenu'
-bindsym $mod+d exec dmenu_run
+bindsym $mod+Shift+Return exec dmenu_run
 bindsym $mod+F1 exec firefox
 bindsym $mod+F2 exec obs
 bindsym $mod+F3 exec kdenlive
 bindsym $mod+F5 exec $myTerm -e 'mocp'
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym $mod+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s

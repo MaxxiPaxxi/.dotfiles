@@ -93,7 +93,10 @@ myTerminal :: String
 myTerminal = "alacritty"    -- Sets default terminal
 
 myBrowser :: String
-myBrowser = "qutebrowser "  -- Sets qutebrowser as browser
+myBrowser = "firefox"  -- Sets firefox as my main browser
+
+mySimpleBrowser :: String
+mySimpleBrowser = "qutebrowser" -- Sets qutebrowser as my simple browser
 
 myEmacs :: String
 myEmacs = "emacsclient -c -a 'emacs' "  -- Makes emacs keybindings easier to type
@@ -182,6 +185,8 @@ myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                 , NS "mocp" spawnMocp findMocp manageMocp
                 , NS "calculator" spawnCalc findCalc manageCalc
+		, NS "telegram" spawnTelg findTelg manageTelg
+		, NS "htop" spawnHtop findHtop manageHtop
                 ]
   where
     spawnTerm  = myTerminal ++ " -t scratchpad"
@@ -208,6 +213,22 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
                  w = 0.4
                  t = 0.75 -h
                  l = 0.70 -w
+    spawnTelg = "telegram-desktop"
+    findTelg = className =? "TelegramDesktop"
+    manageTelg = customFloating $ W.RationalRect l t w h
+	       where
+		 h = 0.5
+		 w = 0.4
+		 t = 0.75 -h
+		 l = 0.70 -w
+    spawnHtop = myTerminal ++ " -t htop -e htop"
+    findHtop = title =? "htop"
+    manageHtop = customFloating $ W.RationalRect l t w h
+	       where
+		 h = 0.5
+		 w = 0.7
+		 t = 0.95 -h
+		 l = 0.95 -w
 
 --Makes setting the spacingRaw simpler to write. The spacingRaw module adds a configurable amount of space around windows.
 mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
@@ -348,6 +369,7 @@ myManageHook = composeAll
      , className =? "splash"          --> doFloat
      , className =? "toolbar"         --> doFloat
      , className =? "Yad"             --> doCenterFloat
+     , title =? "Gnuplot window 0"    --> doFloat -- Float Gnuplot window when called from Qalculator Scratchpad
      , title =? "Oracle VM VirtualBox Manager"  --> doFloat
      , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
      , className =? "Brave-browser"   --> doShift ( myWorkspaces !! 1 )
@@ -398,7 +420,8 @@ myKeys =
 
     -- KB_GROUP Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal))
-        , ("M-b", spawn (myBrowser))
+        , ("M-<F1>", spawn (myBrowser))
+	, ("M-b", spawn (mySimpleBrowser))
         , ("M-M1-h", spawn (myTerminal ++ " -e htop"))
 
     -- KB_GROUP Kill windows
@@ -473,6 +496,8 @@ myKeys =
         , ("M-s t", namedScratchpadAction myScratchPads "terminal")
         , ("M-s m", namedScratchpadAction myScratchPads "mocp")
         , ("M-s c", namedScratchpadAction myScratchPads "calculator")
+	, ("M-s e", namedScratchpadAction myScratchPads "telegram")
+	, ("M-s h", namedScratchpadAction myScratchPads "htop")
 
     -- KB_GROUP Controls for mocp music player (SUPER-u followed by a key)
         , ("M-u p", spawn "mocp --play")

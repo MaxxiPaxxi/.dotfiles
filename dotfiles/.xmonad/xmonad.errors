@@ -1,8 +1,0 @@
-$ /home/estrox1/.xmonad/build /home/estrox1/.xmonad/xmonad-x86_64-linux
-
-xmonad.hs:372:1: warning: [-Wtabs]
-    Tab character found here, and in three further locations.
-    Please use spaces instead.
-    |
-372 |         , ("M-S-<Space>", spawn "rofi -no-lazy-grab -show drun -modi drun -font 'hack 10' -theme dt-center &> ~/.errors/rofi.errors") -- Rofi
-    | ^^^^^^^^

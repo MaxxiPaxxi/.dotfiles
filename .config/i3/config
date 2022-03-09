@@ -98,6 +98,8 @@ bindsym XF86AudioLowerVolume exec "~/.config/polybar/scripts/pavolume.sh --down"
 
 # Media control
 bindsym XF86AudioPlay exec "playerctl play-pause"
+bindsym XF86AudioPrev exec "playerctl previous"
+bindsym XF86AudioNext exec "playerctl next"
 
 # Start Applications
 bindsym $mod+Ctrl+b exec $myTerm -e 'bmenu'
@@ -311,9 +313,10 @@ mode "resize" {
 }
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
+bindsym $mod+9 exec --no-startup-id i3lock
 
 # Autostart applications
+exec --no-startup-id betterlockscreen -w dim # betterlockscreen set desktop background
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id feh --randomize --bg-fill ~/.wallpapers/*

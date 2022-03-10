@@ -397,6 +397,7 @@ myKeys =
 	, ("M-S-<Space>", spawn "rofi -no-lazy-grab -show drun -modi drun -font 'hack 10' -theme dt-center &> ~/.errors/rofi.errors") -- Rofi
 	, ("M-S-p", spawn "rofi -show power-menu -modi power-menu:rofi-power-menu -font 'hack 10' -theme dt-center &> ~/.errors/rofi-powermenu.errors") -- Rofi PowerMenu
 
+	, ("M-<Esc>", spawn "systemctl suspend") -- Suspend
 	, ("M-S-<Esc>", spawn "betterlockscreen -l dim -- --time-str=%H:%M") -- Lockscreen
     -- KB_GROUP Other Dmenu Prompts
     -- In Xmonad and many tiling window managers, M-p is the default keybinding to

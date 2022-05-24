@@ -1,0 +1,8 @@
+-- X11.buildinfo.  Generated from X11.buildinfo.in by configure.
+-- System-dependent values used by Distribution.Simple.defaultUserHooks
+--
+buildable: True
+cc-options:   
+ld-options:  
+extra-libraries: Xss Xinerama Xext
+extra-lib-dirs: 

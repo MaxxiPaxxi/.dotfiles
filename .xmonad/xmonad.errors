@@ -1,9 +1,0 @@
-$ stack build --silent --stack-yaml /home/skynet/.xmonad/stack.yaml
-$ stack ghc --stack-yaml /home/skynet/.xmonad/stack.yaml -- --make xmonad.hs -i -ilib -fforce-recomp -main-is main -v0 -outputdir /home/skynet/.xmonad/build-x86_64-linux -o /home/skynet/.xmonad/xmonad-x86_64-linux
-
-xmonad.hs:375:1: warning: [-Wtabs]
-    Tab character found here, and in three further locations.
-    Please use spaces instead.
-    |
-375 |         , ("M-S-<Space>", spawn "rofi -no-lazy-grab -show drun -modi drun -font 'hack 10' -theme dt-center &> ~/.errors/rofi.errors") -- Rofi
-    | ^^^^^^^^
